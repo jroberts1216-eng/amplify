@@ -1,0 +1,16 @@
+
+import json
+
+def handler(event, context):
+    # Example: Return a simple message with the query string
+    name = event.get("queryStringParameters", {}).get("name", "World")
+    
+    return {
+        "statusCode": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": json.dumps({
+            "message": f"Hello, {name}! This is your Amplify Python Lambda function."
+        })
+    }
